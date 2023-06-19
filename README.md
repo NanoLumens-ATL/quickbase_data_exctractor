@@ -5,7 +5,9 @@
 Create a .env file in the root directory of this project. These will contain our environment variables.
 
 You'll need two:
+
     1) DOMAIN
+
     2) [TOKEN](https://developer.quickbase.com/auth)
 
 
