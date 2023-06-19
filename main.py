@@ -1,24 +1,20 @@
 import requests
 from dotenv import load_dotenv
-from xlsxwriter import Workbook
 import pandas as pd
-import json
 import os
 
 load_dotenv()
-
 headers = {
     'QB-Realm-Hostname': os.getenv('domain'),
     'Authorization': os.getenv('token')
 }
-print(headers)
 
 
 def main(app, fields, start, end):
     body = {
-        'from': 'bmb347gyc',
+        'from': app,
         'where': '{1.BF.\'1/1/2023\'}AND{1.AF.\'1/1/2022\'}',
-        'select': [1, 2, 3, 4, 5, 6]
+        'select': fields
     }
 
     response = requests.post(
@@ -47,5 +43,5 @@ def main(app, fields, start, end):
 
 
 if __name__ == '__main__':
-    # find_field_id('')
+    main('bmb347gyc', [i for i in range(1000)])
     main('bmb347gyc', [1, 2, 3, 4, 5], '1/1/2023', '1/1/2022')
